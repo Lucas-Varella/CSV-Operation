@@ -27,14 +27,20 @@ public class Main {
 			while ((line = reader.readLine()) != null) {
 				count++;
 				String[] row = line.split(";");	
-				Number pfN = nf.parse(row[13]);
-				Double pf = pfN.doubleValue();
-				if(pf > maxPf) {
-					maxPf = pf;
-					maxPfs = new ArrayList<Double>();
-					maxPfs.add(pf);
-				}else if(pf == maxPf) {
-					maxPfs.add(pf);
+				try {
+					Number pfN = nf.parse(row[13]);
+					Double pf = pfN.doubleValue();
+					if(pf > maxPf) {
+						maxPf = pf;
+						maxPfs = new ArrayList<Double>();
+						maxPfs.add(pf);
+					}else if(pf == maxPf) {
+						maxPfs.add(pf);
+					}
+				} catch (ParseException e1) {
+					
+				} catch (ArrayIndexOutOfBoundsException e2) {
+					
 				}
 			}
 			
@@ -42,10 +48,10 @@ public class Main {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ParseException e1) {
-			
 		}
 		System.out.println(maxPfs);
+		
+		
 	}
 
 }
