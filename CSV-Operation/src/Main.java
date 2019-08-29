@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		String inputPath = System.getProperty("user.dir")+"/src/Input/TA_PRECO_MEDICAMENTO.csv";
-		String outputPath = System.getProperty("user.dir")+"/src/Input/output.csv";
+		String outputPath = System.getProperty("user.dir")+"/src/Output/output.csv";
 		String line = "";
 		double maxPf = 0;
 		double minPf = 0;
@@ -23,9 +23,11 @@ public class Main {
 		
 		
 		
+		
 
 		try {
 			FileReader fReader = new FileReader(inputPath);
+			FileWriter csvWriter = new FileWriter(outputPath);
 			BufferedReader reader = new BufferedReader(fReader);
 			ArrayList<String> header = new ArrayList<String>(Arrays.asList(reader.readLine().split(";"))) ;
 			System.out.println(header);
@@ -37,19 +39,19 @@ public class Main {
 					if(pf > maxPf) {
 						maxPf = pf;
 						maxPfs = new ArrayList<String>();
-						maxPfs.add(row[5]);
+						maxPfs.add(row[9]);
 					}else if(pf == maxPf) {
-						maxPfs.add(row[5]);
+						maxPfs.add(row[9]);
 					}else if(row[11].equals("Genérico") && pf < minPf || minPf == 0) {
 						minPfs = new ArrayList<String>();
 						minPf = pf;
-						minPfs.add(row[5]);
+						minPfs.add(row[9]);
 						
 					}else if (row[11].equals("Genérico") && pf == minPf ) {
-						minPfs.add(row[5]);
+						minPfs.add(row[9]);
 					}
 					if(pf > 100 && row[38].equals("Sim") && row[39].equals("Tarja Vermelha")) {
-						
+						csvWriter.append(line);
 					}
 				} catch (ParseException e1) {
 					
@@ -63,6 +65,10 @@ public class Main {
 				} catch (ArrayIndexOutOfBoundsException e2) {
 					
 				}
+				csvWriter.flush();
+				csvWriter.close();
+				fReader.close();
+				reader.close();
 
 			}
 			
