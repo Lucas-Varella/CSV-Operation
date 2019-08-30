@@ -4,6 +4,7 @@ Development of a simple CVS Reader, Writer, and Analyzer, aimed towards semi-col
 ## Instructions
 
 To operate, simply add a file with name "TA_PRECO_MEDICAMENTO.csv" to the Input folder (/src/Input/TA_PRECO_MEDICAMENTO.csv)
+
 The file needs to be formatted in a specific sequence of fields. The sequence is show at the end of this README.
   
 After the 'first part' is concluded (operations on input file), you need to type a message(anything) on the console, as prompted, to proceed to operations done on output.csv
