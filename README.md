@@ -1,5 +1,5 @@
-# CVS-Operation
-Development of a simple CVS Reader, Writer, and Analyzer, aimed towards semi-colon delimited files.
+# CSV-Operation
+Development of a simple CSV Reader, Writer, and Analyzer, aimed towards semi-colon delimited files.
 
 ## Instructions
 
